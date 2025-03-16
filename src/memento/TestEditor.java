@@ -10,20 +10,17 @@ public class TestEditor {
         textArea.setContext("Hello World");
         System.out.println(textArea.getContext());
 
-        careTaker.save(textArea.save());
+        careTaker.save(textArea);
 
         textArea.setContext("Design pattern");
-        careTaker.save(textArea.save());
+        careTaker.save(textArea);
 
         System.out.println(textArea.getContext());
 
-        textArea.restore(careTaker.restore());
+        careTaker.restore(textArea);
         System.out.println(textArea.getContext());
 
-        textArea.restore(careTaker.restore());
-        System.out.println(textArea.getContext());
-
-        textArea.restore(careTaker.restore());
+        careTaker.restore(textArea);
         System.out.println(textArea.getContext());
 
     }

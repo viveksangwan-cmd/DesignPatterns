@@ -10,12 +10,15 @@ public class CareTaker {
         this.history = new Stack<>();
     }
 
-    public void save(TextArea.TextAreaMemento memento){
-        history.add(memento);
+    public void save(TextArea editor){
+        history.add(editor.save());
     }
 
-    public TextArea.TextAreaMemento restore(){
-        if(!history.isEmpty()) return history.pop();
-        return null;
+    public void restore(TextArea editor){
+        if(!history.isEmpty()) {
+            history.pop();
+            if(!history.isEmpty()) editor.restore(history.peek());
+            else editor.restore(null);
+        }
     }
 }
